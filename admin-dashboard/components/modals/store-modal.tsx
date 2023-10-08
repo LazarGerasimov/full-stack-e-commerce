@@ -38,8 +38,10 @@ export const StoreModal = () => {
 
             const response = await axios.post('/api/stores', values);
 
-            console.log("Success");
-            toast.success("Store created successfully.")
+            window.location.assign(`/${response.data.id}`); // this will ensure the page is reloaded and the db will be set (next js router contains edge cases where db is not ready and the modal is rendered within the dashboard which leads to bad ux)
+
+            // console.log("Success");
+            // toast.success("Store created successfully.") - decide later if you need this 
         } catch (error) {
             console.log(error);
             toast.error("Something went wrong.");
