@@ -53,7 +53,7 @@ export const StoreSwitcher = ({
                     className={cn("w-[200px] justify-between", className)}
                     // Accessibility features:
                     aria-expanded={open}
-                    aria-aria-label="Select a store"
+                    aria-label="Select a store"
                 >
                     <StoreIcon className="mr-2 h-4 w-4" />
                     Current Store
