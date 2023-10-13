@@ -126,6 +126,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
             <ApiAlert
                 title="test"
                 description="test-desc"
+                variant="public"
             />
         </>
     )
