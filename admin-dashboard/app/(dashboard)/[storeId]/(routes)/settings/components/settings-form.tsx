@@ -17,6 +17,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/modals/alert-modal";
 import { ApiAlert } from "@/components/ui/api-alert";
+import { useOrigin } from "@/hooks/use-origin";
 
 
 interface SettingsFormProps {
@@ -33,6 +34,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
 
     const params = useParams();
     const router = useRouter();
+    const origin = useOrigin();
 
     const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -125,7 +127,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
             <Separator />
             <ApiAlert
                 title="NEXT_PUBLIC_API_URL"
-                description="test-desc"
+                description={`${origin}/api/${params.storeId}`}
                 variant="public"
             />
         </>
