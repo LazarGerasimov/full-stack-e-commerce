@@ -155,7 +155,7 @@ const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
                     </Button>
                 </form>
             </Form>
-            <Separator />
+            {/* <Separator /> */}
             {/* <ApiAlert
                 title="NEXT_PUBLIC_API_URL"
                 description={`${origin}/api/${params.storeId}`}
