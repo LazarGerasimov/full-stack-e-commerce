@@ -1,5 +1,6 @@
 "use client";
 
+import { useParams, useRouter } from "next/navigation";
 import { DropdownMenu, DropdownMenuLabel, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { Copy, Edit, MoreHorizontal, Trash, } from "lucide-react";
 
@@ -12,6 +13,9 @@ interface CellActionProps {
 }
 
 const CellAction: React.FC<CellActionProps> = ({ data }) => {
+
+    const router = useRouter();
+    const params = useParams();
 
     const onCopy = (id: string) => {
         navigator.clipboard.writeText(id);
@@ -34,7 +38,7 @@ const CellAction: React.FC<CellActionProps> = ({ data }) => {
                     <Copy className="mr-2 h-4 w-4" />
                     Copy Id
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={() => router.push(`/${params.storeId}/billboards/${data.id}`)}>
                     <Edit className="mr-2 h-4 w-4" />
                     Update
                 </DropdownMenuItem>
