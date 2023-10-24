@@ -9,10 +9,10 @@ import toast from "react-hot-toast";
 
 import { AlertModal } from "@/components/modals/alert-modal";
 import { Button } from "@/components/ui/button";
-import { BillboardColumn } from "./columns";
+import { SizeColumn } from "./columns";
 
 interface CellActionProps {
-    data: BillboardColumn;
+    data: SizeColumn;
 }
 
 const CellAction: React.FC<CellActionProps> = ({ data }) => {
@@ -66,7 +66,7 @@ const CellAction: React.FC<CellActionProps> = ({ data }) => {
                         <Copy className="mr-2 h-4 w-4" />
                         Copy Id
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => router.push(`/${params.storeId}/billboards/${data.id}`)}>
+                    <DropdownMenuItem onClick={() => router.push(`/${params.storeId}/sizes/${data.id}`)}>
                         <Edit className="mr-2 h-4 w-4" />
                         Update
                     </DropdownMenuItem>
