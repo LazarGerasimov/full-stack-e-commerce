@@ -1,7 +1,5 @@
 
 
-// Extract params from here as this is a server component
-
 import prismadb from "@/lib/prismadb";
 import SizeForm from "./components/size-form";
 
