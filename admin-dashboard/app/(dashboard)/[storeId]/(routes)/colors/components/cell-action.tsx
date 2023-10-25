@@ -9,10 +9,10 @@ import toast from "react-hot-toast";
 
 import { AlertModal } from "@/components/modals/alert-modal";
 import { Button } from "@/components/ui/button";
-import { SizeColumn } from "./columns";
+import { ColorColumn } from "./columns";
 
 interface CellActionProps {
-    data: SizeColumn;
+    data: ColorColumn;
 }
 
 const CellAction: React.FC<CellActionProps> = ({ data }) => {
