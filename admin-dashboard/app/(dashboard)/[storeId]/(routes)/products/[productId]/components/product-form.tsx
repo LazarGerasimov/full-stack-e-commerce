@@ -137,16 +137,16 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
                 >
                     <FormField
                         control={form.control}
-                        name="imageUrl"
+                        name="images"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel htmlFor={initialData?.label}>Background image</FormLabel>
+                                <FormLabel>Images</FormLabel>
                                 <FormControl>
                                     <ImageUpload
-                                        value={field.value ? [field.value] : []}
+                                        value={field.value.map((image) => image.url)}
                                         disabled={loading}
-                                        onChange={(url) => field.onChange(url)}
-                                        onRemove={() => field.onChange("")}
+                                        onChange={(url) => field.onChange([...field.value, { url }])}
+                                        onRemove={(url) => field.onChange([...field.value.filter((current) => current.url !== url)])}
                                     />
                                 </FormControl>
                                 <FormMessage />
@@ -156,12 +156,25 @@ const ProductForm: React.FC<ProductFormProps> = ({ initialData }) => {
                     <div className="grid grid-cols-3 gap-8">
                         <FormField
                             control={form.control}
-                            name="label"
+                            name="name"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Label</FormLabel>
+                                    <FormLabel>Name</FormLabel>
                                     <FormControl>
-                                        <Input disabled={loading} placeholder="Billboard label.." {...field} />
+                                        <Input disabled={loading} placeholder="Product name.." {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="price"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Price</FormLabel>
+                                    <FormControl>
+                                        <Input type="number" disabled={loading} placeholder="9.99" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
