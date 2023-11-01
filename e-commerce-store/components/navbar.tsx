@@ -1,6 +1,8 @@
 import React from 'react'
-import Container from '@/components/ui/container';
 import Link from 'next/link';
+
+import Container from '@/components/ui/container';
+import MainNav from '@/components/main-nav';
 
 const Navbar = () => {
     return (
@@ -10,6 +12,7 @@ const Navbar = () => {
                     <Link href="/" className='ml-4 flex lg:ml-0 gap-x-2'>
                         <p className='font-bold text-xl'>STORE</p>
                     </Link>
+                    <MainNav data={[]} />
                 </div>
             </Container>
         </div>
