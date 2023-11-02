@@ -5,6 +5,9 @@ import Container from '@/components/ui/container';
 import MainNav from '@/components/main-nav';
 
 const Navbar = () => {
+
+    
+
     return (
         <div className='border-b'>
             <Container>
