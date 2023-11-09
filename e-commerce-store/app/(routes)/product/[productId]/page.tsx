@@ -1,5 +1,6 @@
 import getProduct from "@/actions/get-product";
 import getProducts from "@/actions/get-products";
+import ProductList from "@/components/product-list";
 import Container from "@/components/ui/container";
 
 
@@ -28,6 +29,8 @@ const ProductPage: React.FC<ProductPageProps> = async ({
                             Info
                         </div>
                     </div>
+                    <hr className="my-10" />
+                    <ProductList title="Related Items" items={suggestedProducts} />
                 </div>
             </Container>
         </div>
