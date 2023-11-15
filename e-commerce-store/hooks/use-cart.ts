@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from 'zustand/middleware';
-import toast from "react-hot-toast/headless";
+import toast from "react-hot-toast";
 
 import { Product } from "@/types";
 
