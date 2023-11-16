@@ -15,9 +15,30 @@ const Summary = () => {
     const items = useCart((state) => state.items);
     const removeAll = useCart((state) => state.removeAll);
 
+    useEffect(() => {
+        if (searchParams.get("success")) {
+            toast.success("Payment completed.");
+            removeAll();
+        };
+
+        if (searchParams.get("cancelled")) {
+            toast.error("Something went wrong");
+        }
+    }, [searchParams, removeAll]);
+
     const totalPrice = items.reduce((total, item) => {
         return total + Number(item.price);
-    }, 0)
+    }, 0);
+
+    const onCheckout = async () => {
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
+            productIds: items.map((item) => item.id)
+        });
+
+        window.location = response.data.url;
+    };
+
+
 
 
     return (
@@ -31,7 +52,7 @@ const Summary = () => {
                     <Currency value={totalPrice} />
                 </div>
             </div>
-            <Button className='w-full mt-6'>
+            <Button onClick={onCheckout} className='w-full mt-6'>
                 Checkout
             </Button>
         </div>
