@@ -48,6 +48,22 @@ export async function POST(
         });
     });
 
+    const order = prismadb.order.create({
+        data: {
+            storeId: params.storeId,
+            isPaid: false,
+            orderItems: {
+                create: productIds.map((productId: string) => ({
+                    product: {
+                        connect: {
+                            id: productId
+                        }
+                    }
+                }))
+            }
+        }
+    });
+
     
 }
 
