@@ -9,18 +9,19 @@ import Summary from "./components/summary";
 
 const CartPage = () => {
 
-    // // prevent hydration error
-    // const [isMounted, setIsMounted] = useState(false);
+    // prevent hydration error
+    const [isMounted, setIsMounted] = useState(false);
 
-    // useEffect(() => {
-    //     setIsMounted(false);
-    // }, []);
-
-    // if (!isMounted) {
-    //     return null;
-    // }
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
     const cart = useCart();
+
+    if (!isMounted) {
+        return null;
+    }
+
 
     return (
         <div className="bg-white">
