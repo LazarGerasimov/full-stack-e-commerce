@@ -22,8 +22,7 @@ export const columns: ColumnDef<CategoryColumn>[] = [
     },
     {
         accessorKey: "createdAt",
-        header: "Date",
-        cell: ({ row }) => row.original.billboardLabel
+        header: "Date"
     },
     {
         id: "actions",
