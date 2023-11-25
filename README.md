@@ -1,4 +1,4 @@
-Two projects built with Next 13 - Front End Store & Admin Dashboard. Both deployed on Vercel. 
+Two projects built with Next 13 - Fully Responsive Front End Store & Admin Dashboard. Both deployed on Vercel. 
 
 Frond end store: https://e-commerce-front-end-store.vercel.app/
 
